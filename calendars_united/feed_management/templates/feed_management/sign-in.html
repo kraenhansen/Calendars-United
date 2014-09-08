@@ -1,0 +1,31 @@
+{% extends "calendars_united/base.html" %}
+{% load compile_static %}
+{% load less %}
+
+{% block head_extras %}
+<link rel="stylesheet" href="{{ STATIC_URL}}{% less "feed_management/sign-in.less" %}" />
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="user-errors">
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	  <strong>Error!</strong> Your username and password didn't match. Please try again.
+	</div>
+</div>
+{% endif %}
+
+<form method="post" class="form-signin" role="form" action="{% url 'django.contrib.auth.views.login' %}">
+	{% csrf_token %}
+  <h2 class="form-signin-heading">Please sign in</h2>
+  {{ form.username }}
+  <!--input type="email" class="form-control" placeholder="Email address" required autofocus-->
+  {{ form.password }}
+  <!--input type="password" class="form-control" placeholder="Password" required-->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}

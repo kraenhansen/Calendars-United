@@ -1,0 +1,17 @@
+{% load compile_static %}
+{% load less %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- link rel="stylesheet" href="style.css" / -->
+    <link rel="stylesheet" href="{{ STATIC_URL}}{% less "calendars_united/base.less" %}" />
+    <title>{% block title %}Calendars United{% endblock %}</title>
+    {% block head_extras %}{% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        {% block content %}No content ..{% endblock %}
+    </div>
+</body>
+</html>

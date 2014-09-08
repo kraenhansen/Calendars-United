@@ -1,0 +1,3 @@
+[submodule "calendars_united/bootstrap"]
+	path = calendars_united/bootstrap
+	url = https://github.com/twbs/bootstrap.git

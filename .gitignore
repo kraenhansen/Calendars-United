@@ -52,3 +52,12 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Test databases
+*.sqlite3
+
+# Compiled static assets
+*/static/COMPILED/*
+
+# Virtual env and a test file
+.venv/
+test-calendars-url
